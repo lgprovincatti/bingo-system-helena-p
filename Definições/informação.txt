@@ -1,0 +1,93 @@
+bingo-system-HelenaProvinciatti/
+│
+├── app/
+│   │
+│   ├── main.py
+│   │
+│   ├── core/
+│   │   ├── game_state.py
+│   │   ├── websocket_manager.py
+│   │   └── constants.py
+│   │
+│   ├── services/
+│   │   ├── bingo_service.py
+│   │   ├── auto_draw_service.py
+│   │   ├── card_generator_service.py
+│   │   └── pdf_service.py
+│   │
+│   ├── routes/
+│   │   ├── bingo_routes.py
+│   │   └── websocket_routes.py
+│   │
+│   ├── templates/
+│   │   └── index.html
+│   │
+│   └── static/
+│       ├── css/
+│       │   └── style.css
+│       │
+│       ├── js/
+│       │   └── app.js
+│       │
+│       └── img/
+│
+├── generated/
+│
+├── requirements.txt
+│
+├── README.md
+│
+└── .gitignore
+
+--Instalar requirements
+pip install -r requirements.txt
+
+--Executar servidor
+Ao abri o terminal, ativar o venv
+.\venv\Scripts\Activate.ps1
+
+(antigo) uvicorn app.main:app --reload
+(novo) python launcher.py
+
+--Acessar
+http://localhost:8000
+ou
+http://IP-DA-MAQUINA:8000
+
+--Gerando executável
+pyinstaller --onefile --noconsole `
+--hidden-import app.main `
+--hidden-import app.routes.bingo_routes `
+--hidden-import app.routes.websocket_routes `
+--hidden-import app.services.bingo_service `
+--hidden-import app.services.auto_draw_service `
+--hidden-import app.services.card_service `
+--hidden-import app.services.pdf_service `
+--hidden-import app.core.websocket_manager `
+--hidden-import app.core.game_state `
+--add-data "app/templates;app/templates" `
+--add-data "app/static;app/static" `
+launcher.py
+
+(atualizado)
+pyinstaller --onefile `
+--noconsole `
+--collect-all fastapi `
+--collect-all uvicorn `
+--collect-all starlette `
+--collect-all anyio `
+--collect-all websockets `
+--add-data "app/templates;app/templates" `
+--add-data "app/static;app/static" `
+launcher.py
+
+(Mais Recente)
+pyinstaller --onefile `
+--collect-all fastapi `
+--collect-all uvicorn `
+--collect-all starlette `
+--collect-all anyio `
+--collect-all websockets `
+--add-data "app/templates;app/templates" `
+--add-data "app/static;app/static" `
+launcher.py

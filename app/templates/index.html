@@ -1,0 +1,113 @@
+<!DOCTYPE html>
+<html lang="pt-BR">
+
+<head>
+
+    <meta charset="UTF-8">
+
+    <meta name="viewport"
+          content="width=device-width, initial-scale=1.0">
+
+    <title>Bingo Helena Provinciatti</title>
+
+    <link rel="stylesheet"
+          href="/static/css/style.css">
+
+</head>
+
+<body>
+
+    <div class="container">
+
+        <h1>BINGO</h1>
+
+        <div id="connection-info">
+
+            Acesse pelo celular:
+
+            <span id="server-url"></span>
+
+        </div>
+
+        <div class="game-area">
+
+            <div class="left-panel">
+
+                <div id="last-number">
+
+                    <span id="letter">-</span>
+                    <span id="number">--</span>
+
+                </div>
+
+                <div class="buttons">
+
+                    <button id="draw-button">
+                        Sortear Número
+                    </button>
+
+                    <button id="auto-button">
+                        Sorteio Automático
+                    </button>
+
+                    <button id="pause-button">
+                        Pausar
+                    </button>
+
+                    <button id="reset-button">
+                        Novo Bingo
+                    </button>
+
+                    <button id="cards-button">
+                        Gerar Cartelas PDF
+                    </button>
+
+                    <button id="fullscreen-button">
+                        Tela Cheia
+                    </button>
+
+                    <select id="interval-select">
+
+                        <option value="3">
+                            3 segundos
+                        </option>
+
+                        <option value="5" selected>
+                            5 segundos
+                        </option>
+
+                        <option value="10">
+                            10 segundos
+                        </option>
+
+                    </select>
+
+                </div>
+
+            </div>
+
+            <div class="right-panel">
+
+                <div id="bingo-grid"></div>
+
+            </div>
+
+        </div>
+
+        <div id="history-container">
+
+            <h2>Histórico</h2>
+
+            <div id="history-visual"></div>
+
+            <div id="history-text"></div>
+
+        </div>
+
+    </div>
+
+    <script src="/static/js/app.js"></script>
+
+</body>
+
+</html>
